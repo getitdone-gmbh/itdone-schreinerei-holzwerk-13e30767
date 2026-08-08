@@ -257,6 +257,50 @@ textarea:focus-visible {
 }
 .card p { margin: 0; font-size: 0.95rem; max-width: 34ch; }
 
+/* Aktuelles */
+.aktuelles { background: var(--cream); }
+.grid-news {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+}
+.news-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--cream-dark);
+  border-radius: var(--radius-lg);
+  padding: 30px 26px 28px;
+  padding-top: 34px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.news-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 26px;
+  right: 26px;
+  height: 6px;
+  background-image: repeating-linear-gradient(90deg, var(--wood) 0 1.5px, transparent 1.5px 10px);
+  opacity: 0.5;
+}
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--wood-light);
+}
+.news-date {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  margin-bottom: 0.7em;
+}
+.news-card h3 { font-size: 1.1rem; margin-bottom: 0.4em; }
+.news-card p:not(.news-date) { margin: 0; font-size: 0.95rem; max-width: 38ch; }
+
 /* Öffnungszeiten */
 .oeffnungszeiten { background: var(--cream-dark); }
 .split {
@@ -400,6 +444,7 @@ textarea:focus-visible {
 @media (max-width: 860px) {
   .nav { display: none; }
   .grid-cards { grid-template-columns: 1fr 1fr; }
+  .grid-news { grid-template-columns: 1fr; }
   .split, .kontakt-grid { grid-template-columns: 1fr; }
   .split-media { order: -1; }
   .media-box { max-width: 320px; margin: 0 auto; }
